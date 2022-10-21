@@ -1,0 +1,23 @@
+.mainBody{
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+.page{
+    min-width: 320px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #000000;
+}
+
+.header{
+    margin: auto;
+    padding-top: 45px;
+    border-bottom: 1px solid #545454;
+    max-width: 880px;
+}
+
+.header__logo{
+    padding-bottom: 41px;
+}
