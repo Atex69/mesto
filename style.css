@@ -6,7 +6,7 @@
 
 .page{
     min-width: 320px;
-    max-width: 1280px;
+    max-width: 880px;
     margin: 0 auto;
     background-color: #000000;
 }
@@ -15,9 +15,64 @@
     margin: auto;
     padding-top: 45px;
     border-bottom: 1px solid #545454;
-    max-width: 880px;
+
 }
 
 .header__logo{
     padding-bottom: 41px;
+}
+
+.profile{
+    margin-top: 40px;
+}
+
+.profile__info{
+    display: flex;
+
+}
+
+.profile__card{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile__avatar{
+    max-width: 120px;
+    border-radius: 60px;
+}
+
+.profile__info-tittle {
+    color: #FFFFFF ;
+    margin: 0;
+}
+
+.profile__info-subtittle{
+    color: #FFFFFF ;
+    margin: 0;
+}
+
+.profile__info-editButton{
+    background-image: url("img/penc.png");
+    background-color: #000;
+    margin-left: 18px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-position: center;
+}
+
+.profile__addButton{
+    background-image: url("img/plus.png");
+    background-color: #000;
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
 }

@@ -3,4 +3,7 @@
     max-width: 1280px;
     margin: 0 auto;
     background-color: #000000;
+    -webkit-font-smooting: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
