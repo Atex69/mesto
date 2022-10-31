@@ -16,7 +16,7 @@ function popupClose() {
 }
 
 function likeRender() {
-    if(like.classList.hasClass("element__like_active")){
+    if(like.classList.contains("element__like_active")){
         like.classList.remove('element__like_active');
     } else {
         like.classList.add('element__like_active');
@@ -28,6 +28,6 @@ function addLike(){
 }
 
 
-like.addEventListener('click', addLike);
+like.addEventListener('click', likeRender);
 editButton.addEventListener('click', popupOpen);
 popupCloseButton.addEventListener('click', popupClose);
