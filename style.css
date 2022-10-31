@@ -90,6 +90,11 @@
     cursor: pointer;
     background-position: center;
     align-self: center;
+    transition: all .3s ease-in-out;
+}
+
+.profile__info-editButton:hover{
+    opacity: 0.8;
 }
 
 .profile__addButton{
@@ -105,7 +110,13 @@
     border-radius: 2px;
     place-self: center;
     margin-bottom: 10px;
+    transition: all .3s ease-in-out;
 }
+
+.profile__addButton:hover{
+    opacity: 0.8;
+}
+
 
 .elements__container{
     padding: 0;
@@ -170,7 +181,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
-    width: 23px;
+    width: 22px;
     height: 19px;
     border: none;
     margin-right: 20px;
@@ -201,9 +212,116 @@
     letter-spacing: 0.8px;
 }
 
+.popup{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    transition: all .3s ease-in-out;
+    align-items: center;
+}
+
+.popup_opened{
+    display: flex;
+}
+
+.popup__container{
+    position: relative;
+    max-width: 430px;
+    min-height: 330px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.popup__close{
+    position: absolute;
+    right: -42px;
+    top: -42px;
+    background-color: transparent;
+    background-image: url("img/close.svg");
+    width: 32px;
+    border: 0;
+    height: 32px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.popup__close:hover{
+    opacity: 0.8;
+}
+
+.popup__title{
+    max-width: 330px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    padding: 34px 64px 0px 36px;
+    }
+
+.popup__form{
+    display: flex;
+    flex-direction: column;
+    max-width: 358px;
+    margin: auto;
+    margin-top: 54px;
+}
+
+.popup__label{
+    width: 100%;
+    min-height: 27px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+
+    transition: all .3s ease-in-out;
+}
+
+.popup__label:hover{
+    opacity: 0.8;
+}
+
+.popup__form>label:last-of-type{
+    margin-bottom: 48px;
+}
+
+.popup__input{
+    border: none;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    min-height: 27px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.popup__submit{
+    min-height: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 37px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.popup__submit:hover{
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 1024px) {
     .elements__container{
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
     }
   .page{
       padding-left: 20px;
@@ -242,6 +360,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        align-items: center;
     }
     .element__image{
         max-height: 100%
@@ -251,6 +370,7 @@
         width: 18px;
         height: 18px;
     }
+
     .profile__info-subtittle{
         margin-top: 14px;
         font-size: 14px;
@@ -262,6 +382,9 @@
     }
     .elements{
         margin-top: 36px;
+    }
+    .element{
+        max-width: 282px;
     }
     .profile__info-tittle{
         font-size: 27px;
