@@ -133,7 +133,7 @@
 }
 
 .element{
-    width: 100%;
+    max-width: 282px;
     grid-template-columns: 1fr min-content;
     grid-template-rows: min-content 1fr;
     display: flex;
@@ -320,8 +320,9 @@
 
 @media screen and (max-width: 1024px) {
     .elements__container{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 282px);
         justify-items: center;
+        justify-content: center;
     }
   .page{
       padding-left: 20px;
@@ -333,19 +334,40 @@
     .page{
         padding: 0;
     }
+    .header{
+        padding-top: 30px;
+    }
     .content{
         padding-right: 20px;
         padding-left: 20px;
     }
-    .header__logo,.footer__text{
+    .header__logo{
+       padding-left: 27px;
+        background-image: url("img/logo-mobile.svg");
+        background: no-repeat;
+        max-width: 103px;
+        min-height: 24px;
+        padding-bottom: 25px;
+    }
+    .footer__text{
         padding-left: 20px;
+        font-size: 14px;
+        line-height: 17px;
     }
     .profile{
         flex-direction: column;
-        margin-top: 38px;
+        margin-top: 42px;
     }
     .profile__info{
         align-items: center;
+        width: 100%;
+    }
+    .profile__info-name{
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 27px;
+        padding-left: 4px;
+
     }
     .profile__card{
         flex-direction: column;
