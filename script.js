@@ -3,6 +3,8 @@ let addButton = document.querySelector('.profile__addButton');
 let like = document.querySelector('.element__like');
 let popup =  document.querySelector('.popup');
 let popupCloseButton =  document.querySelector('.popup__close');
+let form = document.querySelector('.popup__form');
+
 
 
 function popupOpen() {
@@ -14,13 +16,18 @@ function popupClose() {
 }
 
 function likeRender() {
-    if(document.querySelector("element__description").classList.hasClass("element__like_active")){
+    if(like.classList.hasClass("element__like_active")){
         like.classList.remove('element__like_active');
     } else {
         like.classList.add('element__like_active');
     }
-
 }
-like.addEventListener('click', likeRender);
+
+function addLike(){
+    like.classList.add('element__like_active')
+}
+
+
+like.addEventListener('click', addLike);
 editButton.addEventListener('click', popupOpen);
 popupCloseButton.addEventListener('click', popupClose);
