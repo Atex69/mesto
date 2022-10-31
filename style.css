@@ -364,7 +364,7 @@
     }
     .profile__info-name{
         width: 100%;
-        justify-content: space-around;
+        justify-content: center;
         padding-top: 27px;
         padding-left: 4px;
 
