@@ -417,4 +417,26 @@
         margin-top: 48px;
         margin-bottom: 36px;
     }
+    .popup__container{
+        max-width: 292px;
+    }
+    .popup__title{
+        display: flex;
+        position: relative;
+        font-size: 18px;
+        line-height: 22px;
+        max-width: 248px;
+        padding: 25px 22px 0px 22px;
+    }
+    .popup__close{
+        background-image: url("img/close-mobile.svg");
+        width: 20px;
+        height: 20px;
+        right: -4px;
+        top: -36px;
+    }
+    .popup__form{
+        margin-top: 75px;
+        max-width: 238px;
+    }
 }
