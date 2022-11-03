@@ -1,0 +1,27 @@
+.profile__info-editButton{
+    background-image: url("/img/penc.png");
+    background-color: #000;
+    margin-left: 18px;
+    margin-top: 4px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-position: center;
+    align-self: center;
+    transition: all .3s ease-in-out;
+}
+
+.profile__info-editButton:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-editButton {
+        margin-left: 10px;
+        width: 18px;
+        height: 18px;
+    }
+}
