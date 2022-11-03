@@ -19,8 +19,8 @@ let formElement = document.querySelector('.popup__form'); // Воспользу�
 let nameInput =  document.querySelector('.popup__input_name')// Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('.popup__input_description')
 let buttonSave = document.querySelector('.popup__submit')
-let titleProfile = document.querySelector('.profile__info-tittle')
-let subtittleProfile = document.querySelector('.profile__info-subtittle')// Воспользуйтесь инструментом .querySelector()
+let titleProfile = document.querySelector('.profile__info-title')
+let subtittleProfile = document.querySelector('.profile__info-subtitle')// Воспользуйтесь инструментом .querySelector()
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
