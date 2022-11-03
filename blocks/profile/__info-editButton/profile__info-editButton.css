@@ -1,4 +1,4 @@
-.profile__info-editButton{
+.profile__info-editButton {
     background-image: url("../../../img/penc.png");
     background-color: #000;
     margin-left: 18px;
@@ -14,7 +14,7 @@
     transition: all .3s ease-in-out;
 }
 
-.profile__info-editButton:hover{
+.profile__info-editButton:hover {
     opacity: 0.8;
 }
 

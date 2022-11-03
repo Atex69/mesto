@@ -1,4 +1,4 @@
-.element{
+.element {
     max-width: 282px;
     grid-template-columns: 1fr min-content;
     grid-template-rows: min-content 1fr;

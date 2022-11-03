@@ -1,4 +1,4 @@
-.elements__container{
+.elements__container {
     padding: 0;
     margin: 0;
     display: grid;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .elements__container{
+    .elements__container {
         grid-template-columns: repeat(2, 282px);
         justify-items: center;
         justify-content: center;
