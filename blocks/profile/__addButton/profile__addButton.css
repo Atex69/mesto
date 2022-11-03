@@ -22,7 +22,7 @@
         .profile__addButton {
                 margin-top: 32px;
                 margin-bottom: 0;
-                background-image: url("/img/plus-mobile.svg");
+                background-image: url("../../../img/plus-mobile.svg");
                 width: 100%;
                 max-width: 282px;
                 min-height: 50px;
