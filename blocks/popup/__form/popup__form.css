@@ -1,12 +1,12 @@
 .popup__form {
+    position: relative;
     display: flex;
     flex-direction: column;
-    max-width: 358px;
-    margin: auto;
-    margin-top: 54px;
+    min-width: 360px;
 }
 
 .popup__form > label:last-of-type {
+    margin-top: 0;
     margin-bottom: 48px;
 }
 

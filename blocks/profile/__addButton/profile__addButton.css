@@ -1,5 +1,5 @@
 .profile__addButton {
-    background-image: url("../../../img/plus.png");
+    background-image: url("../../../image/plus.png");
     background-color: #000;
     width: 150px;
     height: 50px;
@@ -22,7 +22,7 @@
     .profile__addButton {
         margin-top: 32px;
         margin-bottom: 0;
-        background-image: url("../../../img/plus-mobile.svg");
+        background-image: url("../../../image/plus-mobile.svg");
         width: 100%;
         max-width: 282px;
         min-height: 50px;

@@ -9,6 +9,7 @@ let subtittleProfile = document.querySelector('.profile__info-subtitle')// Во�
 
 function popupOpen() {
     popup.classList.add('popup_opened');
+    formSubmitHandler();
 }
 
 function popupClose() {
