@@ -1,10 +1,26 @@
 .popup__input {
     border: none;
-    width: 100%;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     min-height: 27px;
     color: #000000;
     cursor: pointer;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 45px;
+    margin-bottom: 30px;
+    transition: all .3s ease-in-out;
 }
+
+.popup__input:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .popup__input {
+        margin-top: 69px;
+        margin-bottom: 27px;
+    }
+}
+

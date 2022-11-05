@@ -4,8 +4,8 @@
     display: grid;
     max-width: 1280px;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
-    grid-row-gap: 21px;
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -20,7 +20,7 @@
     .elements__container {
         display: flex;
         flex-direction: column;
-        gap: 21px;
+        gap: 20px;
         align-items: center;
     }
 }

@@ -8,9 +8,3 @@
     border-radius: 10px;
     list-style-type: none;
 }
-
-@media screen and (max-width: 768px) {
-    .element {
-        max-width: 282px;
-    }
-}

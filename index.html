@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mesto</title>
+    <title>Место</title>
     <link href="./pages/index.css" rel="stylesheet">
 </head>
-<body class="mainBody">
+<body class="main-body">
 <div class="page">
     <header class="header">
         <img alt="логотип" class="header__logo" src="image/mestoLogo.svg">
@@ -18,12 +18,12 @@
                 <div class="profile__info">
                     <div class="profile__info-name">
                         <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-                        <div class="profile__info-editButton"></div>
+                        <button type="button" class="profile__info-edit-button"></button>
                     </div>
                     <p class="profile__info-subtitle">Исследователь океана</p>
                 </div>
             </div>
-            <div class="profile__addButton"></div>
+            <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
             <ul class="elements__container">
@@ -79,20 +79,20 @@
         <div class="popup__container">
             <button type="button" class="popup__close" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
-                <label for="name" class="popup__label">
-                    <input name="name" id="name" class="popup__input popup__input_name" placeholder="Введите имя">
-                </label>
-                <label for="description" class="popup__label">
-                    <input name="description" id="description" class="popup__input popup__input_description"
+            <form class="popup__form" name="edit-profile">
+
+                    <input name="name" id="name" class="popup__input popup__item_type_name" placeholder="Введите имя">
+
+
+                    <input name="description" id="description" class="popup__input popup__item_type_description"
                            placeholder="О себе">
-                </label>
+
                 <button type="submit" class="popup__submit">Сохранить
                 </button>
             </form>
         </div>
     </div>
 </div>
-<script src="script.js"></script>
+<script src="scripts/index.js"></script>
 </body>
 </html>

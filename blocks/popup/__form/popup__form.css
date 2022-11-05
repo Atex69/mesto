@@ -5,14 +5,13 @@
     min-width: 360px;
 }
 
-.popup__form > label:last-of-type {
+.popup__form > .popup__input:last-of-type {
     margin-top: 0;
     margin-bottom: 48px;
 }
 
 @media screen and (max-width: 768px) {
     .popup__form {
-        margin-top: 75px;
-        max-width: 238px;
+        min-width: 240px;
     }
 }

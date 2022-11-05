@@ -1,7 +1,7 @@
-.profile__info-editButton {
-    background-image: url("../../../image/penc.png");
-    background-color: #000;
-    margin-left: 18px;
+.profile__info-edit-button {
+    background-image: url("../../../image/penc.svg");
+    background-color: transparent;
+    margin-left: 20px;
     margin-top: 4px;
     width: 24px;
     height: 24px;
@@ -14,14 +14,16 @@
     transition: all .3s ease-in-out;
 }
 
-.profile__info-editButton:hover {
-    opacity: 0.8;
+.profile__info-edit-button:hover {
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
-    .profile__info-editButton {
+    .profile__info-edit-button {
         margin-left: 10px;
         width: 18px;
         height: 18px;
+        margin-top: 0px;
+        background-size: 7.5px;
     }
 }
