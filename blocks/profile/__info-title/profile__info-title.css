@@ -6,11 +6,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    min-height: 39px;
     font-style: normal;
     align-self: center;
     font-size: 42px;
-    height: 39px;
     line-height: 39px;
     text-align: left;
 }
