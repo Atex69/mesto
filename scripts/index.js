@@ -1,12 +1,11 @@
-let editButton = document.querySelector('.profile__info-edit-button');
-let popup = document.querySelector('.popup');
-let popupCloseButton = document.querySelector('.popup__close');
-let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__input_type_name');
-let jobInput = document.querySelector('.popup__input_type_description');
-let titleProfile = document.querySelector('.profile__info-title');
-let subtitleProfile = document.querySelector('.profile__info-subtitle');
-
+const editButton = document.querySelector('.profile__info-edit-button');
+const popup = document.querySelector('.popup');
+const popupCloseButton = document.querySelector('.popup__close');
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_description');
+const titleProfile = document.querySelector('.profile__info-title');
+const subtitleProfile = document.querySelector('.profile__info-subtitle');
 const cardsContainer = document.querySelector('.elements__container')
 const initialCards = [
     {
