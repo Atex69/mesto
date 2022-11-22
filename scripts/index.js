@@ -6,7 +6,13 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_description');
 const titleProfile = document.querySelector('.profile__info-title');
 const subtitleProfile = document.querySelector('.profile__info-subtitle');
-const cardsContainer = document.querySelector('.elements__container')
+const cardsContainer = document.querySelector('.elements__container');
+const addButton = document.querySelector('.profile__add-button');
+const formElementPlace = document.querySelector('.popup__form_type_place');
+const popupPlace = document.querySelector('.popup_type_place');
+const popupCloseButtonPlace = document.querySelector('.popup__close_type_place');
+const placeTitleInput = document.querySelector('.popup__input_type_title');
+const placeLinkInput = document.querySelector('.popup__input_type_link');
 const initialCards = [
     {
         name: 'Архыз',
@@ -37,6 +43,7 @@ function createCard(name, link) {
     const cardTemplate = document.querySelector('.card-template').content.querySelector('.element').cloneNode(true)
     cardTemplate.querySelector('.element__title').textContent = name;
     cardTemplate.querySelector('.element__image').src = link;
+    cardTemplate.querySelector('.element__like').addEventListener('click', pushLike)
     cardsContainer.prepend(cardTemplate);
 }
 
@@ -55,14 +62,37 @@ function popupClose() {
     popup.classList.remove('popup_opened');
 }
 
+function popupOpenPlace() {
+    popupPlace.classList.add('popup_opened');
+    placeTitleInput.value = '';
+    placeLinkInput.value= '';
+}
+
+function popupClosePlace() {
+    popupPlace.classList.remove('popup_opened');
+}
+
+
 function formSubmitHandler(evt) {
     evt.preventDefault();
     titleProfile.textContent = nameInput.value;
     subtitleProfile.textContent = jobInput.value;
     popupClose();
 }
+function formSubmitHandlerPlace(evt) {
+    evt.preventDefault();
+    createCard(placeTitleInput.value, placeLinkInput.value);
+    popupClosePlace();
+}
+
+function pushLike(event) {
+    event.target.classList.toggle('element__like_active')
+}
 
 
 formElement.addEventListener('submit', formSubmitHandler);
+formElementPlace.addEventListener('submit', formSubmitHandlerPlace);
 editButton.addEventListener('click', popupOpen);
+addButton.addEventListener('click', popupOpenPlace);
 popupCloseButton.addEventListener('click', popupClose);
+popupCloseButtonPlace.addEventListener('click', popupClosePlace);
