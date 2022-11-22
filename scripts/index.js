@@ -45,6 +45,7 @@ function createCard(name, link) {
     cardTemplate.querySelector('.element__image').src = link;
     cardTemplate.querySelector('.element__like').addEventListener('click', pushLike)
     cardTemplate.querySelector('.element__delete-card').addEventListener('click', cardDelete)
+    cardTemplate.querySelector('.element__image').addEventListener('click', openImg)
     cardsContainer.prepend(cardTemplate);
 }
 
