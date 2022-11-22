@@ -44,6 +44,7 @@ function createCard(name, link) {
     cardTemplate.querySelector('.element__title').textContent = name;
     cardTemplate.querySelector('.element__image').src = link;
     cardTemplate.querySelector('.element__like').addEventListener('click', pushLike)
+    cardTemplate.querySelector('.element__delete-card').addEventListener('click', cardDelete)
     cardsContainer.prepend(cardTemplate);
 }
 
@@ -88,6 +89,15 @@ function formSubmitHandlerPlace(evt) {
 function pushLike(event) {
     event.target.classList.toggle('element__like_active')
 }
+
+function cardDelete(event) {
+    event.currentTarget.closest('.element').remove()
+}
+
+function openImg(event) {
+
+}
+
 
 
 formElement.addEventListener('submit', formSubmitHandler);
