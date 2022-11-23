@@ -16,6 +16,7 @@ const popupCloseButtonImage = document.querySelector('.popup__close_type_image')
 const placeTitleInput = document.querySelector('.popup__input_type_title');
 const placeLinkInput = document.querySelector('.popup__input_type_link');
 const cardImage = document.querySelector('.element__image')
+const cardTitle = document.querySelector('.element__title')
 const initialCards = [
     {
         name: 'Архыз',
@@ -80,6 +81,7 @@ function popupOpenImage(evt) {
     document.querySelector('.popup__image').src = evt.currentTarget.closest('.element__image').src
     document.querySelector('.popup__caption').textContent = evt.currentTarget.closest('.element__image').alt
     document.querySelector('.popup__image').alt = evt.currentTarget.closest('.element__image').alt
+    document.querySelector('.popup__caption').textContent = cardTitle.value;
     popupImage.classList.add('popup_opened');
 }
 
