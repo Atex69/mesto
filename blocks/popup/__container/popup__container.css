@@ -7,7 +7,7 @@
     padding: 34px 86px 0px 35px;
     display: flex;
     flex-direction: column;
-    transition: visibility 0.3s, opacity, .3s;
+    transition: 0.3s;
 }
 
 @media screen and (max-width: 768px) {
