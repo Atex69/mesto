@@ -84,7 +84,6 @@ function popupOpenImage(evt) {
 }
 
 
-
 function popupCloseImage() {
     popupImage.classList.remove('popup_opened');
 }
