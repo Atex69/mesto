@@ -41,6 +41,7 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
 function createCard(name, link) {
     const cardTemplate = document.querySelector('.card-template').content.querySelector('.element').cloneNode(true)
     cardTemplate.querySelector('.element__title').textContent = name;
@@ -55,12 +56,13 @@ function createCard(name, link) {
 function renderInitialCards() {
     initialCards.forEach(item => createCard(item.name, item.link));
 }
+
 renderInitialCards()
 
 function popupOpen() {
     popup.classList.add('popup_opened');
     nameInput.value = titleProfile.textContent;
-    jobInput.value= subtitleProfile.textContent;
+    jobInput.value = subtitleProfile.textContent;
 }
 
 function popupClose() {
@@ -70,12 +72,13 @@ function popupClose() {
 function popupOpenPlace() {
     popupPlace.classList.add('popup_opened');
     placeTitleInput.value = '';
-    placeLinkInput.value= '';
+    placeLinkInput.value = '';
 }
 
 function popupClosePlace() {
     popupPlace.classList.remove('popup_opened');
 }
+
 function popupOpenImage(evt) {
     document.querySelector('.popup__image').src = evt.currentTarget.closest('.element__image').src
     document.querySelector('.popup__image').alt = evt.currentTarget.closest('.element__image').alt
@@ -95,6 +98,7 @@ function formSubmitHandler(evt) {
     subtitleProfile.textContent = jobInput.value;
     popupClose();
 }
+
 function formSubmitHandlerPlace(evt) {
     evt.preventDefault();
     createCard(placeTitleInput.value, placeLinkInput.value);
@@ -108,7 +112,6 @@ function pushLike(event) {
 function cardDelete(event) {
     event.currentTarget.closest('.element').remove()
 }
-
 
 
 formElement.addEventListener('submit', formSubmitHandler);
