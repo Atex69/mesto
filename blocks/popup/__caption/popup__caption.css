@@ -2,4 +2,9 @@
     color: #FFFFFF;
     font-size: 12px;
     line-height: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 291px;
+    padding-top: 10px;
 }

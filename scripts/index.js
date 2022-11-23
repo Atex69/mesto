@@ -15,8 +15,6 @@ const popupCloseButtonPlace = document.querySelector('.popup__close_type_place')
 const popupCloseButtonImage = document.querySelector('.popup__close_type_image');
 const placeTitleInput = document.querySelector('.popup__input_type_title');
 const placeLinkInput = document.querySelector('.popup__input_type_link');
-const cardImage = document.querySelector('.element__image')
-const cardTitle = document.querySelector('.element__title')
 const initialCards = [
     {
         name: 'Архыз',
@@ -46,6 +44,7 @@ const initialCards = [
 function createCard(name, link) {
     const cardTemplate = document.querySelector('.card-template').content.querySelector('.element').cloneNode(true)
     cardTemplate.querySelector('.element__title').textContent = name;
+    cardTemplate.querySelector('.element__image').alt = name
     cardTemplate.querySelector('.element__image').src = link;
     cardTemplate.querySelector('.element__like').addEventListener('click', pushLike)
     cardTemplate.querySelector('.element__delete-card').addEventListener('click', cardDelete)
@@ -79,9 +78,8 @@ function popupClosePlace() {
 }
 function popupOpenImage(evt) {
     document.querySelector('.popup__image').src = evt.currentTarget.closest('.element__image').src
-    document.querySelector('.popup__caption').textContent = evt.currentTarget.closest('.element__image').alt
     document.querySelector('.popup__image').alt = evt.currentTarget.closest('.element__image').alt
-    document.querySelector('.popup__caption').textContent = cardTitle.value;
+    document.querySelector('.popup__caption').textContent = evt.currentTarget.closest('.element__image').alt
     popupImage.classList.add('popup_opened');
 }
 
