@@ -10,9 +10,12 @@ const cardsContainer = document.querySelector('.elements__container');
 const addButton = document.querySelector('.profile__add-button');
 const formElementPlace = document.querySelector('.popup__form_type_place');
 const popupPlace = document.querySelector('.popup_type_place');
+const popupImage = document.querySelector('.popup_type_image');
 const popupCloseButtonPlace = document.querySelector('.popup__close_type_place');
+const popupCloseButtonImage = document.querySelector('.popup__close_type_image');
 const placeTitleInput = document.querySelector('.popup__input_type_title');
 const placeLinkInput = document.querySelector('.popup__input_type_link');
+const cardImage = document.querySelector('.element__image')
 const initialCards = [
     {
         name: 'Архыз',
@@ -45,7 +48,7 @@ function createCard(name, link) {
     cardTemplate.querySelector('.element__image').src = link;
     cardTemplate.querySelector('.element__like').addEventListener('click', pushLike)
     cardTemplate.querySelector('.element__delete-card').addEventListener('click', cardDelete)
-    cardTemplate.querySelector('.element__image').addEventListener('click', openImg)
+    cardTemplate.querySelector('.element__image').addEventListener('click', popupOpenImage)
     cardsContainer.prepend(cardTemplate);
 }
 
@@ -73,6 +76,18 @@ function popupOpenPlace() {
 function popupClosePlace() {
     popupPlace.classList.remove('popup_opened');
 }
+function popupOpenImage(evt) {
+    document.querySelector('.popup__image').src = evt.currentTarget.closest('.element__image').src
+    document.querySelector('.popup__caption').textContent = evt.currentTarget.closest('.element__image').alt
+    document.querySelector('.popup__image').alt = evt.currentTarget.closest('.element__image').alt
+    popupImage.classList.add('popup_opened');
+}
+
+
+
+function popupCloseImage() {
+    popupImage.classList.remove('popup_opened');
+}
 
 
 function formSubmitHandler(evt) {
@@ -95,10 +110,6 @@ function cardDelete(event) {
     event.currentTarget.closest('.element').remove()
 }
 
-function openImg(event) {
-
-}
-
 
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -107,3 +118,5 @@ editButton.addEventListener('click', popupOpen);
 addButton.addEventListener('click', popupOpenPlace);
 popupCloseButton.addEventListener('click', popupClose);
 popupCloseButtonPlace.addEventListener('click', popupClosePlace);
+popupCloseButtonImage.addEventListener('click', popupCloseImage);
+
