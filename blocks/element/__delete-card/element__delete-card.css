@@ -1,6 +1,6 @@
 .element__delete-card{
     position: absolute;
-    background-image: url(/image/trash.svg);
+    background-image: url(../../../image/trash.svg);
     background-color: transparent;
     width: 18px;
     height: 19px;
