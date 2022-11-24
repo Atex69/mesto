@@ -99,9 +99,10 @@ function deleteCard(event) {
 
 //загрузка карточек
 const cardsContainer = document.querySelector('.elements__container');
-const template = document.querySelector('.card-template');
-const cardTemplate = template.content.querySelector('.element').cloneNode(true);
+const template = document.querySelector('.card-template').content.querySelector('.element');
+
 function createCard(cardData) {
+    const cardTemplate = template.cloneNode(true);
     cardTemplate.querySelector('.element__title').textContent = cardData.name;
     const image = cardTemplate.querySelector('.element__image');
     image.alt = cardData.name
