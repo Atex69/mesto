@@ -23,11 +23,13 @@ formElementUser.addEventListener('submit', handleProfileFormSubmit);
 
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_description');
+const profileSubmitButton = formElementUser.querySelector(".popup__submit_type_user");
 
 function openPopupProfile() {
     openPopup(popupUser);
     nameInput.value = titleProfile.textContent;
     jobInput.value = subtitleProfile.textContent;
+    profileSubmitButton.classList.add('popup__submit_disabled');
 }
 
 function closePopupProfile() {
@@ -61,11 +63,12 @@ function handlePlaceFormSubmit(evt) {
 
 const formElementPlace = document.querySelector('.popup__form_type_place');
 formElementPlace.addEventListener('submit', handlePlaceFormSubmit);
+const placeSubmitButton = formElementPlace.querySelector(".popup__submit_type_place");
 
 function openPopupPlace() {
     openPopup(popupPlace);
     formElementPlace.reset();
-
+    placeSubmitButton.classList.add('popup__submit_disabled');
 }
 
 //открытие попапа фото

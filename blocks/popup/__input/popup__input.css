@@ -8,18 +8,12 @@
     cursor: pointer;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin-top: 45px;
-    margin-bottom: 30px;
+    padding: 10px 0;
     transition: all .3s ease-in-out;
 }
 
 .popup__input:hover {
     opacity: 0.8;
-}
-
-.popup__input:last-of-type {
-    margin-top: 0;
-    margin-bottom: 48px;
 }
 
 @media screen and (max-width: 768px) {
