@@ -6,6 +6,7 @@ function closePopup(item) {
     item.classList.remove('popup_opened');
 }
 
+
 //редактирование профиля
 const popupUser = document.querySelector('.popup_type_user');
 const popupCloseButtonUser = document.querySelector('.popup__close_type_user');
@@ -48,6 +49,7 @@ const popupCloseButtonPlace = document.querySelector('.popup__close_type_place')
 const placeTitleInput = document.querySelector('.popup__input_type_title');
 const placeLinkInput = document.querySelector('.popup__input_type_link');
 
+
 popupCloseButtonPlace.addEventListener('click', closePopupPlace);
 
 function closePopupPlace() {
@@ -69,6 +71,14 @@ function openPopupPlace() {
     openPopup(popupPlace);
     formElementPlace.reset();
     placeSubmitButton.classList.add('popup__submit_disabled');
+}
+
+popupUser.addEventListener('keydown', keyHandler); //test
+
+function keyHandler(evt) {
+    if (evt.key === 'Esc') {
+        console.log('sda');
+    }
 }
 
 //открытие попапа фото
@@ -98,7 +108,6 @@ function handleLikeClick(event) {
 function deleteCard(event) {
     event.currentTarget.closest('.element').remove()
 }
-
 
 //загрузка карточек
 const cardsContainer = document.querySelector('.elements__container');
