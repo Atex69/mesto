@@ -20,21 +20,21 @@ const checkInputValidity = (formElement, inputElement, params) => {
     }
 };
 
-function setButtonDisabled(buttonElement) {
+function setButtonDisabled(buttonElement, params) {
+    buttonElement.classList.add(params.inactiveButtonClass);
     buttonElement.setAttribute("disabled", "disabled");
 }
 
-function setButtonEnabled(buttonElement) {
+function setButtonEnabled(buttonElement, params) {
+    buttonElement.classList.remove(params.inactiveButtonClass);
     buttonElement.removeAttribute("disabled");
 }
 
 const toggleButtonState = (inputList, buttonElement, params) => {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(params.inactiveButtonClass);
-        setButtonDisabled(buttonElement);
+        setButtonDisabled(buttonElement, params);
     } else {
-        buttonElement.classList.remove(params.inactiveButtonClass);
-        setButtonEnabled(buttonElement);
+        setButtonEnabled(buttonElement, params);
     }
 }
 const setEventListeners = (formElement, params) => {
