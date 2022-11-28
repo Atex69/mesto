@@ -15,10 +15,4 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 768px) {
-    .popup__input {
-        margin-top: 69px;
-        margin-bottom: 27px;
-    }
-}
 
