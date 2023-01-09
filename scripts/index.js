@@ -1,5 +1,6 @@
 import FormValidator from "../scripts/FormValidator.js";
-import {formParameters, initialCards } from "../scripts/cards.js";
+import {formParameters, initialCards} from "../scripts/cards.js";
+import Card from "../scripts/Card.js";
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -107,7 +108,7 @@ const popupImageElement = document.querySelector('.popup__image');
 
 const closePopupImage = () => closePopup(popupImage);
 
-function openPopupImage(cardData) {
+const openPopupImage = (cardData) => {
     popupImageElement.src = cardData.link;
     popupImageCaption.textContent = cardData.name;
     popupImageElement.alt = cardData.name;
@@ -116,35 +117,15 @@ function openPopupImage(cardData) {
 
 popupCloseButtonImage.addEventListener('click', closePopupImage);
 
-
-function handleLikeClick(event) {
-    event.target.classList.toggle('element__like_active')
-}
-
-function deleteCard(event) {
-    event.currentTarget.closest('.element').remove()
-}
-
 //загрузка карточек
 const cardsContainer = document.querySelector('.elements__container');
-const template = document.querySelector('.card-template').content.querySelector('.element');
 
-function createCard(cardData) {
-    const cardTemplate = template.cloneNode(true);
-    cardTemplate.querySelector('.element__title').textContent = cardData.name;
-    const image = cardTemplate.querySelector('.element__image');
-    image.alt = cardData.name;
-    image.src = cardData.link;
-    image.addEventListener('click', () => openPopupImage(cardData))
-    cardTemplate.querySelector('.element__like').addEventListener('click', handleLikeClick)
-    cardTemplate.querySelector('.element__delete-card').addEventListener('click', deleteCard)
-    return cardTemplate;
-}
 
 function renderInitialCards() {
     initialCards.forEach(item => {
-        const newCard = createCard(item);
-        cardsContainer.prepend(newCard)
+        const card = new Card(item, openPopupImage)
+        let rendered = card.render();
+        cardsContainer.prepend(rendered);
     });
 }
 
