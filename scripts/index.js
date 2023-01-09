@@ -1,3 +1,6 @@
+import FormValidator from "../scripts/FormValidator.js";
+import {formParameters, initialCards } from "../scripts/cards.js";
+
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', keyHandler);
@@ -29,6 +32,8 @@ const popupUser = document.querySelector(popupUserQuerySelector);
 const popupCloseButtonUser = document.querySelector('.popup__close_type_user');
 const titleProfile = document.querySelector('.profile__info-title');
 const subtitleProfile = document.querySelector('.profile__info-subtitle');
+let userFormValidator = new FormValidator(formParameters, popupUser);
+userFormValidator.enableValidation();
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
@@ -66,6 +71,8 @@ const popupPlace = document.querySelector(popupPlaceQuerySelector);
 const popupCloseButtonPlace = document.querySelector('.popup__close_type_place');
 const placeTitleInput = document.querySelector('.popup__input_type_title');
 const placeLinkInput = document.querySelector('.popup__input_type_link');
+let placeFormValidator = new FormValidator(formParameters, popupPlace);
+placeFormValidator.enableValidation();
 
 
 const closePopupPlace = () => closePopup(popupPlace);
