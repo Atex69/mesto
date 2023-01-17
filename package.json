@@ -1,7 +1,7 @@
 {
   "type": "module",
-  "name": "mesto",
-  "version": "1.0.0",
+  "name": "yandex.praktikum",
+  "version": "0.0.1",
   "description": "* Figma\r * Картинки",
   "main": "script.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/Atex69/mesto.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Baianov Emil",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Atex69/mesto/issues"

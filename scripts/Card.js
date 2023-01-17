@@ -1,36 +1,35 @@
 export default class Card {
-    constructor(data, openPopupImage) {
+    constructor(data, openPopupImage, cardSelector) {
         this._data = data;
         this._openPopupImage = openPopupImage;
+        this._cardSelector = cardSelector;
     }
 
     _getTemplate = () => {
-        return document.querySelector('.card-template').content.querySelector('.element').cloneNode(true);
+        return document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
     }
 
     _handleLikeClick = (event) => {
         event.target.classList.toggle('element__like_active')
     }
 
-    _deleteCard = (event) => {
-        event.currentTarget.closest('.element').remove()
+    _deleteCard = () => {
+        this._cardTemplate.remove()
+    }
+
+    _setEventListeners = () => {
+        this._image.addEventListener('click', () => this._openPopupImage(this._data))
+        this._cardTemplate.querySelector('.element__like').addEventListener('click', this._handleLikeClick)
+        this._cardTemplate.querySelector('.element__delete-card').addEventListener('click', this._deleteCard)
     }
 
     render = () => {
-        const cardTemplate = this._getTemplate();
-        cardTemplate.querySelector('.element__title').textContent = this._data.name;
-        const image = cardTemplate.querySelector('.element__image');
-        image.alt = this._data.name;
-        image.src = this._data.link;
-        image.addEventListener('click', () => this._openPopupImage(this._data))
-        cardTemplate.querySelector('.element__like').addEventListener('click', this._handleLikeClick)
-        cardTemplate.querySelector('.element__delete-card').addEventListener('click', this._deleteCard)
-        return cardTemplate;
+        this._cardTemplate = this._getTemplate();
+        this._cardTemplate.querySelector('.element__title').textContent = this._data.name;
+        this._image = this._cardTemplate.querySelector('.element__image');
+        this._image.alt = this._data.name;
+        this._image.src = this._data.link;
+        this._setEventListeners();
+        return this._cardTemplate;
     }
-
-
-
-
-
-
 }
