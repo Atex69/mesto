@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "build": "rd /s /q dist && webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
-  } ,
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Atex69/mesto.git"
@@ -21,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Atex69/mesto/issues"
   },
-  "homepage": "https://github.com/Atex69/mesto#readme"
+  "homepage": "https://github.com/Atex69/mesto#readme",
+  "dependencies": {
+    "core-js": "^3.27.1"
+  }
 }

@@ -94,9 +94,6 @@ function openPopupPlace() {
     formElementPlace.reset();
     placeFormValidator.toggleButtonState();
 }
-
-
-
 //открытие попапа фото
 const popupImageQuerySelector = '.popup_type_image';
 const popupImage = document.querySelector(popupImageQuerySelector);
