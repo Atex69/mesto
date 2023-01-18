@@ -81,7 +81,8 @@ popupCloseButtonPlace.addEventListener('click', closePopupPlace);
 
 function handlePlaceFormSubmit(evt) {
     evt.preventDefault();
-    createCard({"name": placeTitleInput.value, "link": placeLinkInput.value});
+    let card = createCard({"name": placeTitleInput.value, "link": placeLinkInput.value});
+    cardsContainer.prepend(card);
     closePopupPlace();
 }
 
@@ -115,16 +116,20 @@ const openPopupImage = (cardData) => {
 popupCloseButtonImage.addEventListener('click', closePopupImage);
 
 //загрузка карточек
-const cardsContainer = document.querySelector('.elements__container');
+
 
 const createCard = (item) => {
     const card = new Card(item, openPopupImage,'.card-template')
-    const rendered = card.render();
-    console.log(rendered)
-    cardsContainer.prepend(rendered);
+    return card.render();
 }
+const cardsContainer = document.querySelector('.elements__container');
+
 function renderInitialCards() {
-    initialCards.forEach(item => createCard(item));
+    initialCards.forEach (item =>{
+        const card = createCard(item);
+        cardsContainer.prepend(card);
+    });
+
 }
 
 
