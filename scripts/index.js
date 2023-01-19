@@ -120,7 +120,6 @@ const cardsContainer = document.querySelector('.elements__container');
 const createCard = (item) => {
     const card = new Card(item, openPopupImage,'.card-template')
     const rendered = card.render();
-    console.log(rendered)
     cardsContainer.prepend(rendered);
 }
 function renderInitialCards() {
