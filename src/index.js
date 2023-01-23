@@ -22,7 +22,6 @@ import {
     subtitleProfile,
     titleProfile,
 } from "../scripts/const.js";
-import {formParameters} from "../scripts/cards";
 
 
 
