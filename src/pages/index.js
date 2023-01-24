@@ -1,9 +1,10 @@
-import Section from "../scripts/Section.js";
-import Card from "../scripts/Card.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import UserInfo from "../scripts/UserInfo.js";
-import  FormValidator  from "../scripts/FormValidator.js";
+import Section from "../components/Section.js";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
+import  FormValidator  from "../components/FormValidator.js";
+import {formParameters, initialCards} from "../components/const.js";
 import {
     buttonEditProfile,
     buttonOpenCardPopup, cardsContainer,
@@ -21,8 +22,9 @@ import {
     popupUser,
     subtitleProfile,
     titleProfile,
-} from "../scripts/const.js";
+} from "../utils/const.js";
 
+import "../pages/index.css";
 
 
 function handleProfileFormSubmit(evt) {

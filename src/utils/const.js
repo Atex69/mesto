@@ -1,5 +1,3 @@
-import FormValidator from  '../scripts/formValidator.js';
-import {formParameters} from "../scripts/cards.js";
 const formElementPlace = document.querySelector('.popup__form_type_place');
 const popupUserQuerySelector = '.popup_type_user';
 const popupUser = document.querySelector(popupUserQuerySelector);
@@ -46,3 +44,47 @@ export {
     popupImageElement,
     cardsContainer,
 };
+import arhyz from '../images/arkhyz.jpg';
+import chelyaba from '../images/chelyaba.jpg';
+import ivanovo from '../images/ivanovo.jpg';
+import cumchatka from '../images/cumchatka.jpg';
+import baikal from '../images/baikal.jpg';
+import sochi from '../images/sochi.jpg';
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: arhyz
+    },
+    {
+        name: 'Челябинская область',
+        link: chelyaba
+    },
+    {
+        name: 'Иваново',
+        link: ivanovo
+    },
+    {
+        name: 'Камчатка',
+        link: cumchatka
+    },
+    {
+        name: 'Сочи',
+        link: sochi
+    },
+    {
+        name: 'Байкал',
+        link: baikal
+    }
+];
+
+
+const formParameters = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    inactiveButtonClass: 'popup__submit_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_active',
+    submitSelector: '.popup__submit'
+}
+
+export {initialCards, formParameters};

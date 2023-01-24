@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Место</title>
-    <link href="./pages/index.css" rel="stylesheet">
     <script type="module" src="scripts/cards.js"></script>
     <script type="module" src="src/index.js"></script>
     <script type="module" src="scripts/FormValidator.js"></script>
@@ -14,12 +13,12 @@
 <body class="main-body">
 <div class="page">
     <header class="header">
-        <img alt="логотип" class="header__logo" src="images/mestoLogo.svg">
+        <img src="<%=require('images/mestoLogo.svg')%>" class="header__logo" alt="Логотип">
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__card">
-                <img alt="аватарка" class="profile__avatar" src="images/zhak.png">
+                <img src="<%=require('images/zhak.png')%>" class="profile__avatar" alt="аватарка">
                 <div class="profile__info">
                     <div class="profile__info-name">
                         <h1 class="profile__info-title">Жак-Ив Кусто</h1>
