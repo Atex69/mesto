@@ -24,7 +24,7 @@ import {
     titleProfile,
 } from "../utils/const.js";
 
-import "../pages/index.css";
+import "./index.css";
 
 
 function handleProfileFormSubmit(evt) {
