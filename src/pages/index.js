@@ -90,9 +90,3 @@ cardsSection.renderItems();
 
 buttonEditProfile.addEventListener("click", openPopupProfile);
 buttonOpenCardPopup.addEventListener("click", openPopupPlace);
-
-// function renderInitialCards() {
-//     initialCards.forEach((item) => createCard(item));
-// }
-//
-// renderInitialCards();
