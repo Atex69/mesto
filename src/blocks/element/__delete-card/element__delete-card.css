@@ -1,16 +1,16 @@
-.element__delete-card{
-    position: absolute;
-    background-image: url(../../../images/trash.svg);
-    background-color: transparent;
-    width: 18px;
-    height: 19px;
-    top: 20px;
-    left: 244px;
-    cursor: pointer;
-    z-index: 1;
-    border: none;
+.element__delete-card {
+  position: absolute;
+  background-image: url(../../../images/trash.svg);
+  background-color: transparent;
+  width: 18px;
+  height: 19px;
+  top: 20px;
+  left: 244px;
+  cursor: pointer;
+  z-index: 1;
+  border: none;
 }
 
-.element__delete-card:hover{
-    opacity: 0.6;
+.element__delete-card:hover {
+  opacity: 0.6;
 }
