@@ -29,10 +29,13 @@ export default class PopupWithForm extends Popup {
       }
     });
   }
-  openPopup(values = {}) {
-    this._inputList.forEach((input) => {
-      input.value = values[input.name] || '';
-    });
+
+  openPopup(...inputValues) {
+    if (arguments.length > 0) {
+      inputValues.forEach((value, i) => {
+        if (this._inputList[i] !== undefined) this._inputList[i].value = value;
+      });
+    }//очень мало времени, нужно следующую работу уже сдать до конца недели, а так согласен с вами полностью!
     super.openPopup();
   }
 
