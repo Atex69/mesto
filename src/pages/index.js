@@ -53,7 +53,7 @@ placeFormValidator.enableValidation();
 
 //редактирование фотографий
 function handlePlaceFormSubmit(inputs) {
-    let card = createCard({name: inputs.place, link: inputs.link});
+    const card = createCard({name: inputs.place, link: inputs.link});
     cardsSection.addItem(card);
     placeAddPopup.closePopup();
 }
