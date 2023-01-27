@@ -25,7 +25,7 @@ const apiData = {
         "Content-Type": "application/json",
     },
 };
-const api = new Api(apiData);
+const fapi = new Api(apiData);
 
 
 const userInfo = new UserInfo({
