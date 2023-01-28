@@ -14,6 +14,7 @@ const popupPlaceQuerySelector = ".popup_type_place";
 const popupAvatarQuerySelector = ".popup_type_avatar";
 const popupDeleteQuerySelector = ".popup_type_delete";
 const popupPlace = document.querySelector(popupPlaceQuerySelector);
+const popupAvatar = document.querySelector(popupAvatarQuerySelector);
 const popupCloseButtonPlace = document.querySelector(
   ".popup__close_type_place"
 );
@@ -44,6 +45,7 @@ export {
   buttonOpenCardPopup,
   popupPlaceQuerySelector,
   popupPlace,
+  popupAvatar,
   popupCloseButtonPlace,
   placeTitleInput,
   placeLinkInput,
