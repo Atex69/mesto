@@ -58,7 +58,7 @@ function handleProfileFormSubmit(inputValues) {
                 profileName: res.name,
                 profileInfo: res.about
             });
-            userPopup.closePopup();
+            userPopup.close();
         })
         .catch((err) => {
             console.log(`Возникла ошибка: ${err}`)
@@ -96,7 +96,7 @@ avatarPopup.setEventListeners();
 
 function openPopupProfile() {
     const info = userInfo.getUserInfo();
-    userPopup.openPopup(info.profileName, info.profileInfo);
+    userPopup.open(info.profileName, info.profileInfo);
 }
 
 const placeAddPopup = new PopupWithForm(
@@ -108,13 +108,15 @@ placeAddPopup.setEventListeners();
 const placeFormValidator = new FormValidator(formParameters, popupPlace);
 placeFormValidator.enableValidation();
 
+
+
 function handlePlaceFormSubmit(inputs) {
     placeAddPopup.setSubmitButtonSaveText();
     api.addNewCard({name: inputs.place, link: inputs.link})
         .then((card) => {
             const cardRendered = createCard(card);
             cardsSection.addItem(cardRendered);
-            placeAddPopup.closePopup();
+            placeAddPopup.close();
         })
         .catch((err) => {
             console.log(`При добавлении новой карточки возникла ошибка, ${err}`)
@@ -125,7 +127,7 @@ function handlePlaceFormSubmit(inputs) {
 const handleDelete = (cardElement, cardId) => { api.deleteCard(cardId)
     .then(() => {
         cardElement.deleteCard();
-        popupDelete.closePopup();
+        popupDelete.close();
     })
     .catch((err) => { console.log(`При удалении карточки возникла ошибка, ${err}`) })
 }
@@ -134,7 +136,7 @@ const popupDelete = new PopupWithConfirmation(popupDeleteQuerySelector, handleDe
 popupDelete.setEventListeners();
 
 function openPopupPlace() {
-    placeAddPopup.openPopup();
+    placeAddPopup.open();
     placeFormValidator.toggleButtonState();
 }
 
@@ -145,10 +147,10 @@ const createCard = (item) => {
     let authorData = {cardId: item._id, authorId: item.owner._id};
     const card = new Card(item, ".card-template", id, authorData, {
         handleOpenPopupImage: data => {
-            popupWithImage.openPopup(data)
+            popupWithImage.open(data)
         },
         handleDelete: (cardElement, cardId) => {
-            popupDelete.openPopup(cardElement, cardId)
+            popupDelete.open(cardElement, cardId)
         },
         handleLike: (cardId) => {
             api.addLike(cardId)
@@ -179,4 +181,4 @@ api
 
 buttonEditProfile.addEventListener("click", openPopupProfile);
 buttonOpenCardPopup.addEventListener("click", openPopupPlace);
-avatarChange.addEventListener('click', () =>    avatarPopup.openPopup());
+avatarChange.addEventListener('click', () => avatarPopup.open());

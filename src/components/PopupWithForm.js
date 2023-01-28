@@ -34,22 +34,22 @@ export default class PopupWithForm extends Popup {
       } else {
         e.preventDefault();
         this._submitHandler(this._getInputValues());
-        this.closePopup();
+        this.close();
       }
     });
   }
 
-  openPopup(...inputValues) {
+  open(...inputValues) {
     if (arguments.length > 0) {
       inputValues.forEach((value, i) => {
         if (this._inputList[i] !== undefined) this._inputList[i].value = value;
       });
     }//очень мало времени, нужно следующую работу уже сдать до конца недели, а так согласен с вами полностью!
-    super.openPopup();
+    super.open();
   }
 
-  closePopup() {
-    super.closePopup();
+  close() {
+    super.close();
     this._form.reset();
   }
 }

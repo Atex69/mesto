@@ -13,11 +13,15 @@ export default class UserInfo {
   }
 
   setUserInfo({ profileName, profileInfo }) {
+    if ({ profileName, profileInfo }){
     this._profileName.textContent = profileName;
     this._profileInfo.textContent = profileInfo;
   }
+  }
 
   setAvatar(avatarLink) {
+    if(avatarLink){
     this._avatar.src = avatarLink;
+  }
   }
 }
