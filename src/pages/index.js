@@ -51,6 +51,7 @@ const userInfo = new UserInfo({
 });
 
 function handleProfileFormSubmit(inputValues) {
+    userPopup.setSubmitButtonSaveText();
     api.saveUserData(inputValues)
         .then((res) => {
             userInfo.setUserInfo({
@@ -62,6 +63,7 @@ function handleProfileFormSubmit(inputValues) {
         .catch((err) => {
             console.log(`Возникла ошибка: ${err}`)
         })
+        .finally(() => userPopup.resetSubmitButtonText())
 }
 
 const userPopup = new PopupWithForm(
@@ -74,6 +76,7 @@ const userFormValidator = new FormValidator(formParameters, popupUser);
 userFormValidator.enableValidation();
 
 const handleAvatarSave = inputValues => {
+    avatarPopup.setSubmitButtonSaveText();
     api
         .sendAvatar({avatar: inputValues.avatar})
         .then((res) => {
@@ -83,6 +86,7 @@ const handleAvatarSave = inputValues => {
         .catch((err) => {
             console.log(`возникла ошибка: ${err}`)
         })
+        .finally(() => avatarPopup.resetSubmitButtonText())
 }
 const avatarPopup = new PopupWithForm(
     popupAvatarQuerySelector,
@@ -105,6 +109,7 @@ const placeFormValidator = new FormValidator(formParameters, popupPlace);
 placeFormValidator.enableValidation();
 
 function handlePlaceFormSubmit(inputs) {
+    placeAddPopup.setSubmitButtonSaveText();
     api.addNewCard({name: inputs.place, link: inputs.link})
         .then((card) => {
             const cardRendered = createCard(card);
@@ -114,6 +119,7 @@ function handlePlaceFormSubmit(inputs) {
         .catch((err) => {
             console.log(`При добавлении новой карточки возникла ошибка, ${err}`)
         })
+        .finally(() => placeAddPopup.resetSubmitButtonText())
 }
 
 const handleDelete = (cardElement, cardId) => { api.deleteCard(cardId)
