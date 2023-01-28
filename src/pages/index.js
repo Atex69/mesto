@@ -12,31 +12,83 @@ import {
     popupImageQuerySelector,
     popupPlace,
     popupPlaceQuerySelector,
+    popupAvatarQuerySelector,
+    popupDeleteQuerySelector,
     popupUser,
+    avatarChange,
     popupUserQuerySelector
 } from "../utils/const.js";
 
 import "./index.css";
+import Api from "../components/Api";
+import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
+const apiData = {
+    url: "https://nomoreparties.co/v1/cohort-57/",
+    headers: {
+        authorization: "ad54961e-3f85-45c8-ba7a-70af841df2af",
+        "Content-Type": "application/json",
+    },
+};
+let id;
+const api = new Api(apiData);
+
+api
+    .getUserData()
+    .then(userData => {
+        id = userData._id;
+        userInfo.setUserInfo({
+            profileName: userData.name,
+            profileInfo: userData.about,
+        });
+        userInfo.setAvatar(userData.avatar)
+    });
 
 const userInfo = new UserInfo({
     nameSelector: ".profile__info-title",
     infoSelector: ".profile__info-subtitle",
+    avatarSelector: ".profile__avatar",
 });
+
+function handleProfileFormSubmit(inputValues) {
+    api.saveUserData(inputValues)
+        .then((res) => {
+            userInfo.setUserInfo({
+                profileName: res.name,
+                profileInfo: res.about
+            });
+            userPopup.closePopup();
+        })
+        .catch((err) => {
+            console.log(`Возникла ошибка: ${err}`)
+        })
+}
+
 const userPopup = new PopupWithForm(
     popupUserQuerySelector,
     handleProfileFormSubmit
 );
 userPopup.setEventListeners();
+
 const userFormValidator = new FormValidator(formParameters, popupUser);
 userFormValidator.enableValidation();
 
-function handleProfileFormSubmit(inputValues) {
-    userInfo.setUserInfo({
-        profileName: inputValues.name,
-        profileInfo: inputValues.description,
-    });
+const handleAvatarSave = inputValues => {
+    api
+        .sendAvatar({avatar: inputValues.avatar})
+        .then((res) => {
+            userInfo.setAvatar(res.avatar);
+            avatarPopup.close();
+        })
+        .catch((err) => {
+            console.log(`возникла ошибка: ${err}`)
+        })
 }
+const avatarPopup = new PopupWithForm(
+    popupAvatarQuerySelector,
+    handleAvatarSave
+);
+avatarPopup.setEventListeners();
 
 function openPopupProfile() {
     const info = userInfo.getUserInfo();
@@ -52,12 +104,28 @@ placeAddPopup.setEventListeners();
 const placeFormValidator = new FormValidator(formParameters, popupPlace);
 placeFormValidator.enableValidation();
 
-//редактирование фотографий
 function handlePlaceFormSubmit(inputs) {
-    const card = createCard({name: inputs.place, link: inputs.link});
-    cardsSection.addItem(card);
-    placeAddPopup.closePopup();
+    api.addNewCard({name: inputs.place, link: inputs.link})
+        .then((card) => {
+            const cardRendered = createCard(card);
+            cardsSection.addItem(cardRendered);
+            placeAddPopup.closePopup();
+        })
+        .catch((err) => {
+            console.log(`При добавлении новой карточки возникла ошибка, ${err}`)
+        })
 }
+
+const handleDelete = (cardElement, cardId) => { api.deleteCard(cardId)
+    .then(() => {
+        cardElement.deleteCard();
+        popupDelete.closePopup();
+    })
+    .catch((err) => { console.log(`При удалении карточки возникла ошибка, ${err}`) })
+}
+
+const popupDelete = new PopupWithConfirmation(popupDeleteQuerySelector, handleDelete);
+popupDelete.setEventListeners();
 
 function openPopupPlace() {
     placeAddPopup.openPopup();
@@ -67,13 +135,26 @@ function openPopupPlace() {
 const popupWithImage = new PopupWithImage(popupImageQuerySelector);
 popupWithImage.setEventListeners();
 
-//загрузка карточек
-const openPopupImage = (cardData) => {
-    popupWithImage.openPopup(cardData);
-};
-
 const createCard = (item) => {
-    const card = new Card(item, openPopupImage, ".card-template");
+    let authorData = {cardId: item._id, authorId: item.owner._id};
+    const card = new Card(item, ".card-template", id, authorData, {
+        handleOpenPopupImage: data => {
+            popupWithImage.openPopup(data)
+        },
+        handleDelete: (cardElement, cardId) => {
+            popupDelete.openPopup(cardElement, cardId)
+        },
+        handleLike: (cardId) => {
+            api.addLike(cardId)
+                .then(res => card.renderLike(res))
+                .catch(err => console.log(`возникла ошибка при лайке: ${err}`))
+        },
+        handleCardDeleteLike: cardId => {
+            api.deleteLike(cardId)
+                .then(res => card.renderLike(res))
+                .catch(err => console.log(`возникла ошибка при дизлайке: ${err}`))
+        },
+    });
     return card.render();
 };
 const cardsSection = new Section(
@@ -86,8 +167,10 @@ const cardsSection = new Section(
     },
     ".elements__container"
 );
-
-cardsSection.renderItems();
+api
+    .getInitialCards()
+    .then(cards => cardsSection.renderItems(cards.reverse()))
 
 buttonEditProfile.addEventListener("click", openPopupProfile);
 buttonOpenCardPopup.addEventListener("click", openPopupPlace);
+avatarChange.addEventListener('click', () =>    avatarPopup.openPopup());

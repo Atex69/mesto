@@ -9,7 +9,10 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_description");
 const buttonEditProfile = document.querySelector(".profile__info-edit-button");
 const buttonOpenCardPopup = document.querySelector(".profile__add-button");
+const avatarChange = document.querySelector(".profile__avatar");
 const popupPlaceQuerySelector = ".popup_type_place";
+const popupAvatarQuerySelector = ".popup_type_avatar";
+const popupDeleteQuerySelector = ".popup_type_delete";
 const popupPlace = document.querySelector(popupPlaceQuerySelector);
 const popupCloseButtonPlace = document.querySelector(
   ".popup__close_type_place"
@@ -27,7 +30,10 @@ const cardsContainer = document.querySelector(".elements__container");
 export {
   formElementPlace,
   popupUserQuerySelector,
+  popupAvatarQuerySelector,
+  popupDeleteQuerySelector,
   popupUser,
+  avatarChange,
   popupCloseButtonUser,
   titleProfile,
   subtitleProfile,

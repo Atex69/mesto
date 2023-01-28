@@ -5,6 +5,12 @@
   margin-right: 30px;
 }
 
+.profile__avatar:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  background:url('../../../images/mont.png') no-repeat center;
+}
+
 @media screen and (max-width: 768px) {
   .profile__avatar {
     margin-right: 0px;
