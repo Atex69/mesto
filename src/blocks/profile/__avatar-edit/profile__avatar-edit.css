@@ -5,4 +5,10 @@
     background: none;
     margin: 0;
     padding: 0;
+    border: none;
+}
+.profile__avatar-edit:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.9) url('../../../images/pencEdit.svg') no-repeat center;
 }
