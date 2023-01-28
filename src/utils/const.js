@@ -9,7 +9,7 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_description");
 const buttonEditProfile = document.querySelector(".profile__info-edit-button");
 const buttonOpenCardPopup = document.querySelector(".profile__add-button");
-const avatarChange = document.querySelector(".profile__avatar-edit");
+const buttonOpenAvatarUpdateForm = document.querySelector(".profile__avatar-edit");
 const popupPlaceQuerySelector = ".popup_type_place";
 const popupAvatarQuerySelector = ".popup_type_avatar";
 const popupDeleteQuerySelector = ".popup_type_delete";
@@ -33,7 +33,7 @@ export {
   popupAvatarQuerySelector,
   popupDeleteQuerySelector,
   popupUser,
-  avatarChange,
+  buttonOpenAvatarUpdateForm,
   popupCloseButtonUser,
   titleProfile,
   subtitleProfile,

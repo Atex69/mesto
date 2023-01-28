@@ -15,7 +15,7 @@ import {
     popupAvatarQuerySelector,
     popupDeleteQuerySelector,
     popupUser,
-    avatarChange,
+    buttonOpenAvatarUpdateForm,
     popupUserQuerySelector
 } from "../utils/const.js";
 
@@ -144,7 +144,7 @@ const popupWithImage = new PopupWithImage(popupImageQuerySelector);
 popupWithImage.setEventListeners();
 
 const createCard = (item) => {
-    let authorData = {cardId: item._id, authorId: item.owner._id};
+    const authorData = {cardId: item._id, authorId: item.owner._id};
     const card = new Card(item, ".card-template", id, authorData, {
         handleOpenPopupImage: data => {
             popupWithImage.open(data)
@@ -181,4 +181,4 @@ api
 
 buttonEditProfile.addEventListener("click", openPopupProfile);
 buttonOpenCardPopup.addEventListener("click", openPopupPlace);
-avatarChange.addEventListener('click', () => avatarPopup.open());
+buttonOpenAvatarUpdateForm.addEventListener('click', () => avatarPopup.open());
